@@ -8,20 +8,28 @@ func testEqual(got string, want string, t *testing.T) {
 	}
 }
 
-func TestHelloWithNoParam(t *testing.T) {
-	got := Hello()
-	want := "Hello, World"
-	testEqual(got, want, t)
-}
+func TestHello(t *testing.T) {
+	t.Run("saying hello to one man", func(t *testing.T) {
+		got := Hello("Alamin")
+		want := "Hello, Alamin"
+		testEqual(got, want, t)
+	})
 
-func TestHelloWithSingleParam(t *testing.T) {
-	got := Hello("Alamin")
-	want := "Hello, Alamin"
-	testEqual(got, want, t)
-}
+	t.Run("saying without passing anything", func(t *testing.T) {
+		got := Hello()
+		want := "Hello, World"
+		testEqual(got, want, t)
+	})
 
-func TestHelloWithLotsOfParams(t *testing.T) {
-	got := Hello("Alamin", "Billal", "Chowdhury", "Drake", "Eminem", "Falcon")
-	want := "Hello, Alamin, Billal, Chowdhury, Drake, Eminem, Falcon"
-	testEqual(got, want, t)
+	t.Run("saying hello to lots of people by name", func(t *testing.T) {
+		got := Hello("Alamin", "Billal", "Chowdhury", "Drake", "Eminem", "Falcon")
+		want := "Hello, Alamin, Billal, Chowdhury, Drake, Eminem, Falcon"
+		testEqual(got, want, t)
+	})
+
+	t.Run("saying hello with an empty string", func(t *testing.T) {
+		got := Hello("")
+		want := "Hello, World"
+		testEqual(got, want, t)
+	})
 }
