@@ -1,5 +1,5 @@
 # Learn Go With Tests
-![](https://travis-ci.org/alamin-mahamud/e-commerce-go-api.svg?branch=master)
+![](https://travis-ci.org/alamin-mahamud/go-tdd.svg?branch=master)
 
 ``` bash
 # Debugger
