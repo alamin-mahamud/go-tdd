@@ -2,13 +2,16 @@ package hello
 
 import "testing"
 
-func testEqual(got string, want string, t *testing.T) {
-	if got != want {
-		t.Errorf("got '%s' want '%s'\n", got, want)
-	}
-}
-
 func TestHello(t *testing.T) {
+
+	var testEqual = func(got, want string, t *testing.T) {
+		t.Helper()
+
+		if got != want {
+			t.Errorf("got '%s' want '%s'\n", got, want)
+		}
+	}
+
 	t.Run("saying hello to one man", func(t *testing.T) {
 		got := Hello("Alamin")
 		want := "Hello, Alamin"
