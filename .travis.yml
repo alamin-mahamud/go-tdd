@@ -8,9 +8,9 @@ go:
   - 1.11.x
 
 # Force-enable Go modules. This will be unnecessary when Go 1.12 lands.
-env:
-  - GO111MODULE=on
-  - PORT=8000
+# env:
+#   - GO111MODULE=on
+#   - PORT=8000
   
 # Only clone the most recent commit.
 git:
@@ -19,7 +19,7 @@ git:
 script:
   - ./scripts/gofmt.sh
   # - make build
-  # - make unittest
+  - make unittest
 
 notifications:
   email: false
